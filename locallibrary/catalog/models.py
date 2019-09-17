@@ -28,6 +28,7 @@ class BookInstance(models.Model):
     due_back = models.DateField(null=True, blank=True)
     status = models.CharField(max_length=1, choices=LOAN_STATUS, help_text='Avilablity')
     book = models.ForeignKey(Book, on_delete=models.SET_NULL, null=True)
+    imprint = models.CharField(max_length=300, default="No IMPRINT")
 
     class Meta:
         ordering = ['due_back']
