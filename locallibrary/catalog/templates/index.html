@@ -10,5 +10,5 @@
         <li><strong>Number of avilable Copies: </strong>{{ num_avilable_book_instances }}</li>
         <li><strong>Number of Authors: </strong>{{ num_authors }}</li>
     </ul>
-
+    <p>You have visited this site {{ num_visits }} {% if num_visits == 1 %} time {% else %} times {% endif %} </p>
 {% endblock %}

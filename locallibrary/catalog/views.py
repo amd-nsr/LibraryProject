@@ -8,12 +8,14 @@ def index(request):
     num_book_instances = BookInstance.objects.count()
     num_avilable_book_instances = BookInstance.objects.filter(status__exact='a').count()
     num_authors = Author.objects.count()
-    
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
     context = {
         'num_books' : num_books,
         'num_book_instances' : num_book_instances,
         'num_avilable_book_instances' : num_avilable_book_instances,
         'num_authors' : num_authors,
+        'num_visits':num_visits,
     }
     return render(request, 'index.html', context=context)
 
